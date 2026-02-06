@@ -79,7 +79,7 @@
       transform: translateY(0);
     }
 
-    .info p {
+    p {
       font-size: 18px;
       line-height: 1.9;
     }
@@ -89,7 +89,7 @@
     }
 
     li {
-      margin-bottom: 10px;
+      margin-bottom: 16px;
       font-size: 17px;
     }
 
@@ -129,7 +129,7 @@
   </div>
 
   <!-- ===== INFO ===== -->
-  <section class="info">
+  <section>
     <h2 class="fade-up">公演情報</h2>
     <p class="fade-up">
       📅 日付：2026年3月21日（土）<br>
@@ -138,29 +138,54 @@
     </p>
   </section>
 
+  <!-- ===== ACCESS ===== -->
+  <section>
+    <h2 class="fade-up">アクセス</h2>
+    <p class="fade-up">
+      🚌 最寄りバス停：<strong>学園道</strong><br>
+      🚃 最寄り駅：<strong>九大学研都市駅</strong>
+    </p>
+    <div class="fade-up" style="margin-top:30px;">
+      <iframe src="https://www.google.com/maps?q=福岡市立元岡中学校&output=embed"
+        width="100%" height="350" style="border:0; border-radius:12px;" loading="lazy"></iframe>
+    </div>
+  </section>
+
   <!-- ===== PROGRAM ===== -->
   <section>
     <h2 class="fade-up">プログラム</h2>
     <ul class="fade-up">
-      <li>第一部：シンフォニックステージ</li>
-      <li>第二部：ポップスステージ</li>
-      <li>第三部：合同ステージ</li>
+      <li><strong>第一部：シンフォニックステージ</strong><br>GR より ／ シンフォニックステーション ほか</li>
+      <li><strong>第二部：ポップスステージ</strong><br>We Are ／ Confidence Man ほか</li>
+      <li><strong>第三部：合同ステージ</strong><br>宝島 ほか</li>
     </ul>
   </section>
 
-  <!-- ===== GUEST ===== -->
+  <!-- ===== CAST ===== -->
   <section>
-    <h2 class="fade-up">ゲスト</h2>
-    <p class="fade-up">越本 龍二</p>
+    <h2 class="fade-up">出演者</h2>
+    <p class="fade-up">指揮：岸田 昌也<br>ゲスト：越本 龍二</p>
   </section>
 
-  <!-- ===== TICKET ===== -->
+  <!-- ===== NOTICE ===== -->
   <section>
-    <h2 class="fade-up">チケットについて</h2>
+    <h2 class="fade-up">ご来場の皆さまへ</h2>
     <p class="fade-up">
-      本演奏会は <strong>入場無料</strong> です。<br><br>
-      チケットは、<br>
-      <strong>福岡市立元岡中学校 吹奏楽部員よりお受け取りください。</strong>
+      ・写真・動画撮影は可能です。<br>
+      ・演奏中の客席の出入りはご遠慮ください。<br>
+      ・携帯電話など音の出る機器はマナーモードに設定をお願いいたします。
+    </p>
+  </section>
+
+  <!-- ===== CLUB ===== -->
+  <section>
+    <h2 class="fade-up">元岡中学校 吹奏楽部</h2>
+    <p class="fade-up">部員数：<br>1年生 20名 ／ 2年生 20名 ／ 3年生 30名</p>
+    <p class="fade-up" style="margin-top:20px;">
+      🎺 <strong>部員募集中！</strong><br>
+      音楽が好きな人も、そうでない人も大歓迎。<br>
+      楽器未経験でも大丈夫です。<br>
+      一緒に音楽を楽しみましょう！
     </p>
   </section>
 
@@ -169,26 +194,21 @@
     <img src="https://raw.githubusercontent.com/motooka-suisougaku/suisougaku-Home-page/main/school_logo.png" alt="元岡中学校 校章" class="fade-logo">
   </div>
 
-  <footer>
-    © 福岡市立元岡中学校 吹奏楽部
-  </footer>
+  <footer>© 福岡市立元岡中学校 吹奏楽部</footer>
 
   <!-- ===== SCRIPT ===== -->
   <script>
-    const targets = document.querySelectorAll(".fade-up");
-    const logo = document.querySelector(".fade-logo");
+    const targets = document.querySelectorAll('.fade-up');
+    const logo = document.querySelector('.fade-logo');
 
-    const observer = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add("show");
+          entry.target.classList.add('show');
           observer.unobserve(entry.target);
         }
       });
-    }, {
-      rootMargin: "-40% 0px",
-      threshold: 0
-    });
+    }, { rootMargin: '-40% 0px' });
 
     targets.forEach(el => observer.observe(el));
     observer.observe(logo);
