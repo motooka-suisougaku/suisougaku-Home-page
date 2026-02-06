@@ -1,218 +1,196 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <title>福岡市立元岡中学校 定期演奏会</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<title>元岡中学校 吹奏楽部 定期演奏会</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
-      background: #0e0e0e;
-      color: #f5f5f5;
-    }
+<style>
+/* ===== 全体 ===== */
+body {
+  margin: 0;
+  font-family: "Hiragino Kaku Gothic ProN","Meiryo",sans-serif;
+  background: linear-gradient(180deg,#0f172a,#1e293b);
+  color: #f8fafc;
+  line-height: 1.6;
+}
 
-    /* ===== HERO ===== */
-    .hero {
-      height: 100vh;
-      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-        url("https://raw.githubusercontent.com/motooka-suisougaku/suisougaku-Home-page/main/competition.jpg");
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      opacity: 0;
-      animation: heroFade 1.8s ease-out forwards;
-    }
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh;
+  background:
+    linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.7)),
+    url("https://github.com/motooka-suisougaku/suisougaku-Home-page/blob/main/competition.jpg?raw=true")
+    center / cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 24px;
+}
 
-    @keyframes heroFade {
-      from { opacity: 0; filter: blur(4px); }
-      to   { opacity: 1; filter: blur(0); }
-    }
+/* 校章（消えない） */
+.logo {
+  width: 140px;
+  margin-bottom: 20px;
+}
 
-    .hero h1,
-    .hero p {
-      opacity: 0;
-      animation: fadeUp 1s ease forwards;
-    }
+/* フェードイン（文字だけ） */
+.fade {
+  animation: fadeUp 1.2s ease forwards;
+  opacity: 0;
+}
 
-    .hero h1 {
-      font-size: clamp(30px, 6vw, 44px);
-      letter-spacing: 2px;
-      animation-delay: 0.4s;
-    }
+.delay1 { animation-delay: .2s; }
+.delay2 { animation-delay: .6s; }
+.delay3 { animation-delay: 1s; }
 
-    .hero p:nth-of-type(1) { animation-delay: 0.9s; }
-    .hero p:nth-of-type(2) { animation-delay: 1.2s; }
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
+/* ===== セクション ===== */
+section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 48px 20px;
+}
 
-    /* ===== SECTION ===== */
-    section {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 80px 20px;
-    }
+h2 {
+  font-size: 24px;
+  margin-bottom: 16px;
+  border-left: 5px solid #60a5fa;
+  padding-left: 10px;
+}
 
-    h2 {
-      font-size: 28px;
-      border-bottom: 2px solid #fff;
-      display: inline-block;
-      margin-bottom: 30px;
-    }
+.card {
+  background: rgba(255,255,255,.08);
+  border-radius: 16px;
+  padding: 22px;
+}
 
-    .fade-up {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: 1s ease;
-    }
+p { margin: 8px 0; }
+ul { padding-left: 18px; }
+li { margin-bottom: 6px; }
 
-    .fade-up.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    p {
-      font-size: 18px;
-      line-height: 1.9;
-    }
-
-    ul {
-      padding-left: 20px;
-    }
-
-    li {
-      margin-bottom: 16px;
-      font-size: 17px;
-    }
-
-    /* ===== LOGO ===== */
-    .logo {
-      text-align: center;
-      padding: 100px 20px 60px;
-    }
-
-    .logo img {
-      width: 120px;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: 1.2s ease;
-    }
-
-    .logo img.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    footer {
-      text-align: center;
-      padding: 40px 20px;
-      font-size: 14px;
-      opacity: 0.7;
-    }
-  </style>
+/* ===== フッター ===== */
+footer {
+  text-align: center;
+  padding: 30px;
+  font-size: 14px;
+  opacity: .7;
+}
+</style>
 </head>
+
 <body>
 
-  <!-- ===== HERO ===== -->
-  <div class="hero">
-    <h1>福岡市立元岡中学校<br>定期演奏会</h1>
-    <p><em>No music, no life</em></p>
-    <p><em>Cantabile</em></p>
+<!-- ===== HERO ===== -->
+<div class="hero">
+  <div>
+    <!-- 校章（アニメーションに含めない） -->
+    <img class="logo"
+      src="https://github.com/motooka-suisougaku/suisougaku-Home-page/blob/main/school_logo.png?raw=true"
+      alt="元岡中学校 校章">
+
+    <h1 class="fade delay1">福岡市立元岡中学校<br>吹奏楽部 定期演奏会</h1>
+    <p class="fade delay2">Motooka Junior High School Wind Orchestra Concert</p>
+    <p class="fade delay3">2026.3.21</p>
   </div>
+</div>
 
-  <!-- ===== INFO ===== -->
-  <section>
-    <h2 class="fade-up">公演情報</h2>
-    <p class="fade-up">
-      📅 日付：2026年3月21日（土）<br>
-      📍 会場：福岡市立元岡中学校 体育館<br>
-      🕜 開場：13:30 ／ 開演：14:00
-    </p>
-  </section>
+<!-- ===== 公演情報 ===== -->
+<section>
+  <h2>公演情報</h2>
+  <div class="card">
+    <p><strong>日付：</strong>2026年3月21日</p>
+    <p><strong>会場：</strong>福岡市立元岡中学校 体育館</p>
+    <p><strong>開場：</strong>13:30 ／ <strong>開演：</strong>14:00</p>
+  </div>
+</section>
 
-  <!-- ===== ACCESS ===== -->
-  <section>
-    <h2 class="fade-up">アクセス</h2>
-    <p class="fade-up">
-      🚌 最寄りバス停：<strong>学園道</strong><br>
-      🚃 最寄り駅：<strong>九大学研都市駅</strong>
-    </p>
-    <div class="fade-up" style="margin-top:30px;">
-      <iframe src="https://www.google.com/maps?q=福岡市立元岡中学校&output=embed"
-        width="100%" height="350" style="border:0; border-radius:12px;" loading="lazy"></iframe>
-    </div>
-  </section>
-
-  <!-- ===== PROGRAM ===== -->
-  <section>
-    <h2 class="fade-up">プログラム</h2>
-    <ul class="fade-up">
-      <li><strong>第一部：シンフォニックステージ</strong><br>GR より ／ シンフォニックステーション ほか</li>
-      <li><strong>第二部：ポップスステージ</strong><br>We Are ／ Confidence Man ほか</li>
-      <li><strong>第三部：合同ステージ</strong><br>宝島 ほか</li>
+<!-- ===== プログラム ===== -->
+<section>
+  <h2>プログラム</h2>
+  <div class="card">
+    <p><strong>第一部｜シンフォニックステージ</strong></p>
+    <ul>
+      <li>シンフォニックステーション ほか</li>
     </ul>
-  </section>
 
-  <!-- ===== CAST ===== -->
-  <section>
-    <h2 class="fade-up">出演者</h2>
-    <p class="fade-up">指揮：岸田 昌也<br>ゲスト：越本 龍二</p>
-  </section>
+    <p><strong>第二部｜ポップスステージ</strong></p>
+    <ul>
+      <li>We Are Confidence Man ほか</li>
+    </ul>
 
-  <!-- ===== NOTICE ===== -->
-  <section>
-    <h2 class="fade-up">ご来場の皆さまへ</h2>
-    <p class="fade-up">
-      ・写真・動画撮影は可能です。<br>
-      ・演奏中の客席の出入りはご遠慮ください。<br>
-      ・携帯電話など音の出る機器はマナーモードに設定をお願いいたします。
-    </p>
-  </section>
-
-  <!-- ===== CLUB ===== -->
-  <section>
-    <h2 class="fade-up">元岡中学校 吹奏楽部</h2>
-    <p class="fade-up">部員数：<br>1年生 20名 ／ 2年生 20名 ／ 3年生 30名</p>
-    <p class="fade-up" style="margin-top:20px;">
-      🎺 <strong>部員募集中！</strong><br>
-      音楽が好きな人も、そうでない人も大歓迎。<br>
-      楽器未経験でも大丈夫です。<br>
-      一緒に音楽を楽しみましょう！
-    </p>
-  </section>
-
-  <!-- ===== LOGO ===== -->
-  <div class="logo">
-    <img src="https://raw.githubusercontent.com/motooka-suisougaku/suisougaku-Home-page/main/school_logo.png" alt="元岡中学校 校章" class="fade-logo">
+    <p><strong>第三部｜合同ステージ</strong></p>
+    <ul>
+      <li>宝島 ほか</li>
+    </ul>
   </div>
+</section>
 
-  <footer>© 福岡市立元岡中学校 吹奏楽部</footer>
+<!-- ===== 出演 ===== -->
+<section>
+  <h2>出演</h2>
+  <div class="card">
+    <p><strong>指揮：</strong>岸田 昌也</p>
+    <p><strong>ゲスト：</strong>越本 龍二</p>
+  </div>
+</section>
 
-  <!-- ===== SCRIPT ===== -->
-  <script>
-    const targets = document.querySelectorAll('.fade-up');
-    const logo = document.querySelector('.fade-logo');
+<!-- ===== チケット ===== -->
+<section>
+  <h2>チケット</h2>
+  <div class="card">
+    <p>入場無料</p>
+    <p>チケットは元岡中学校吹奏楽部員からお受け取りください。</p>
+  </div>
+</section>
 
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { rootMargin: '-40% 0px' });
+<!-- ===== アクセス ===== -->
+<section>
+  <h2>アクセス</h2>
+  <div class="card">
+    <p><strong>最寄りバス停：</strong>学園通二丁目</p>
+    <p><strong>最寄り駅：</strong>九大学研都市駅</p>
+    <iframe
+      src="https://www.google.com/maps?q=福岡市立元岡中学校&output=embed"
+      width="100%" height="300"
+      style="border:0;border-radius:12px;"
+      loading="lazy">
+    </iframe>
+  </div>
+</section>
 
-    targets.forEach(el => observer.observe(el));
-    observer.observe(logo);
-  </script>
+<!-- ===== 注意 ===== -->
+<section>
+  <h2>ご来場の皆さまへ</h2>
+  <div class="card">
+    <p>・写真・動画撮影は可能です。</p>
+    <p>・演奏中の出入りはご遠慮ください。</p>
+  </div>
+</section>
+
+<!-- ===== 募集 ===== -->
+<section>
+  <h2>部員募集中</h2>
+  <div class="card">
+    <p>音楽が好きな人も、そうでない人も大歓迎！</p>
+    <p>部員数：1年生20名／2年生20名／3年生30名</p>
+  </div>
+</section>
+
+<footer>
+© 福岡市立元岡中学校 吹奏楽部
+</footer>
 
 </body>
 </html>
