@@ -17,7 +17,7 @@
     .hero {
       height: 100vh;
       background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-        url("https://raw.githubusercontent.com/motooka-suisougaku/teikiensoukai/main/competition.jpg");
+        url("competition.jpg");
       background-size: cover;
       background-position: center;
       display: flex;
@@ -48,7 +48,6 @@
 
     .hero p:nth-of-type(1) { animation-delay: 0.9s; }
     .hero p:nth-of-type(2) { animation-delay: 1.2s; }
-    .hero p:nth-of-type(3) { animation-delay: 1.5s; }
 
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(20px); }
@@ -85,14 +84,31 @@
       line-height: 1.9;
     }
 
-    .program {
-      margin-top: 30px;
+    ul {
       padding-left: 20px;
     }
 
-    .program li {
+    li {
       margin-bottom: 10px;
       font-size: 17px;
+    }
+
+    /* ===== LOGO ===== */
+    .logo {
+      text-align: center;
+      padding: 100px 20px 60px;
+    }
+
+    .logo img {
+      width: 120px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: 1.2s ease;
+    }
+
+    .logo img.show {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     footer {
@@ -110,13 +126,13 @@
     <h1>福岡市立元岡中学校<br>定期演奏会</h1>
     <p><em>No music, no life</em></p>
     <p><em>Cantabile</em></p>
-    <p>2026年3月21日（土）</p>
   </div>
 
   <!-- ===== INFO ===== -->
   <section class="info">
     <h2 class="fade-up">公演情報</h2>
     <p class="fade-up">
+      📅 日付：2026年3月21日（土）<br>
       📍 会場：福岡市立元岡中学校 体育館<br>
       🕜 開場：13:30 ／ 開演：14:00
     </p>
@@ -125,7 +141,7 @@
   <!-- ===== PROGRAM ===== -->
   <section>
     <h2 class="fade-up">プログラム</h2>
-    <ul class="program fade-up">
+    <ul class="fade-up">
       <li>第一部：シンフォニックステージ</li>
       <li>第二部：ポップスステージ</li>
       <li>第三部：合同ステージ</li>
@@ -135,10 +151,23 @@
   <!-- ===== GUEST ===== -->
   <section>
     <h2 class="fade-up">ゲスト</h2>
+    <p class="fade-up">越本 龍二</p>
+  </section>
+
+  <!-- ===== TICKET ===== -->
+  <section>
+    <h2 class="fade-up">チケットについて</h2>
     <p class="fade-up">
-      越本 龍二
+      本演奏会は <strong>入場無料</strong> です。<br><br>
+      チケットは、<br>
+      <strong>福岡市立元岡中学校 吹奏楽部員よりお受け取りください。</strong>
     </p>
   </section>
+
+  <!-- ===== LOGO ===== -->
+  <div class="logo">
+    <img src="school_logo.png" alt="元岡中学校 校章" class="fade-logo">
+  </div>
 
   <footer>
     © 福岡市立元岡中学校 吹奏楽部
@@ -147,6 +176,7 @@
   <!-- ===== SCRIPT ===== -->
   <script>
     const targets = document.querySelectorAll(".fade-up");
+    const logo = document.querySelector(".fade-logo");
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -161,6 +191,7 @@
     });
 
     targets.forEach(el => observer.observe(el));
+    observer.observe(logo);
   </script>
 
 </body>
