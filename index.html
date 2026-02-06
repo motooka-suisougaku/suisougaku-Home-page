@@ -12,10 +12,12 @@
       background: #0e0e0e;
       color: #f5f5f5;
     }
+
+    /* ===== HERO ===== */
     .hero {
       height: 100vh;
       background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-        url('https://github.com/motooka-suisougaku/teikiensoukai/blob/main/competition.jpg?raw=true');
+        url("https://raw.githubusercontent.com/motooka-suisougaku/teikiensoukai/main/competition.jpg");
       background-size: cover;
       background-position: center;
       display: flex;
@@ -23,331 +25,143 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 20px;
+      opacity: 0;
+      animation: heroFade 1.8s ease-out forwards;
     }
-    .hero h1 {
-      font-size: 42px;
-      letter-spacing: 2px;
-      margin-bottom: 10px;
+
+    @keyframes heroFade {
+      from { opacity: 0; filter: blur(4px); }
+      to   { opacity: 1; filter: blur(0); }
     }
+
+    .hero h1,
     .hero p {
-      font-size: 18px;
-      opacity: 0.9;
+      opacity: 0;
+      animation: fadeUp 1s ease forwards;
     }
+
+    .hero h1 {
+      font-size: clamp(30px, 6vw, 44px);
+      letter-spacing: 2px;
+      animation-delay: 0.4s;
+    }
+
+    .hero p:nth-of-type(1) { animation-delay: 0.9s; }
+    .hero p:nth-of-type(2) { animation-delay: 1.2s; }
+    .hero p:nth-of-type(3) { animation-delay: 1.5s; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== SECTION ===== */
     section {
       max-width: 900px;
       margin: 0 auto;
       padding: 80px 20px;
     }
+
     h2 {
       font-size: 28px;
       border-bottom: 2px solid #fff;
       display: inline-block;
       margin-bottom: 30px;
     }
-    .about p {
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: 1s ease;
+    }
+
+    .fade-up.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .info p {
+      font-size: 18px;
       line-height: 1.9;
+    }
+
+    .program {
+      margin-top: 30px;
+      padding-left: 20px;
+    }
+
+    .program li {
+      margin-bottom: 10px;
       font-size: 17px;
     }
-    label {
-      display: block;
-      margin-top: 25px;
-      font-weight: bold;
-    }
-    select, textarea, input {
-      width: 100%;
-      padding: 12px;
-      margin-top: 8px;
-      background: #1c1c1c;
-      border: 1px solid #444;
-      color: #fff;
-      border-radius: 4px;
-      font-size: 16px;
-    }
-    button {
-      margin-top: 30px;
-      padding: 14px;
-      width: 100%;
-      font-size: 18px;
-      background: #ffffff;
-      color: #000;
-      border: none;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    button:hover {
-      background: #ccc;
-    }
-    .complete {
-      display: none;
-      text-align: center;
-      font-size: 20px;
-    }
+
     footer {
       text-align: center;
       padding: 40px 20px;
       font-size: 14px;
       opacity: 0.7;
     }
-     .loading {
-    display: none;
-    text-align: center;
-    font-size: 16px;
-    margin-top: 20px;
-  }
-
-  .spinner {
-    width: 18px;
-    height: 18px;
-    border: 3px solid #ccc;
-    border-top: 3px solid #000;
-    border-radius: 50%;
-    display: inline-block;
-    animation: spin 1s linear infinite;
-    vertical-align: middle;
-    margin-right: 8px;
-  }
-
-  @keyframes spin {
-    to { transform: rotate(360deg); }
-  }
-  
-.school-logo {
-  width: 160px;
-  margin-top: 20px;
-  opacity: 0.9;
-}
-    /* 背景フェードイン用 */
-.hero {
-  opacity: 0;
-  animation: heroFade 1.8s ease-out forwards;
-}
-
-@keyframes heroFade {
-  from {
-    opacity: 0;
-    filter: blur(4px);
-  }
-  to {
-    opacity: 1;
-    filter: blur(0);
-  }
-}
-    /* スクロール出現アニメーション */
-.fade-up {
-  opacity: 0;
-  transform: translateY(25px);
-  transition: opacity 1.2s ease, transform 1.2s ease;
-}
-
-.fade-up.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-    .school-logo {
-  width: 160px;
-  margin-top: 20px;
-  opacity: 0;
-  animation: logoFade 1.2s ease-out forwards;
-  animation-delay: 1.2s;
-}
-
-@keyframes logoFade {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 0.9;
-    transform: translateY(0);
-  }
-}
-    .delay-1 {
-  transition-delay: 0s;
-}
-
-.delay-2 {
-  transition-delay: 0.3s;
-}
   </style>
 </head>
 <body>
 
+  <!-- ===== HERO ===== -->
   <div class="hero">
     <h1>福岡市立元岡中学校<br>定期演奏会</h1>
-    <p>No music, no life</p>
-    <p>Cantabile</p>
-    <img
-  src="./school_logo.png"
-  alt="元岡中学校 校章"
-  class="school-logo"
-  referrerpolicy="no-referrer"
-/>
+    <p><em>No music, no life</em></p>
+    <p><em>Cantabile</em></p>
+    <p>2026年3月21日（土）</p>
   </div>
 
-  <section class="about">
-  <h2 class="fade-up delay-1">演奏会について(ABOUT THE CONCERT)</h2>
-  <p class="fade-up delay-2">
-    本日は定期演奏会にご来場いただき、誠にありがとうございました。<br>
-    皆さまの温かい拍手と応援が、私たちの音楽活動の大きな励みとなっています。<br><br>
-    今後の活動向上のため、ぜひアンケートにご協力ください。
-  </p>
-    
-</section>
+  <!-- ===== INFO ===== -->
+  <section class="info">
+    <h2 class="fade-up">公演情報</h2>
+    <p class="fade-up">
+      📍 会場：福岡市立元岡中学校 体育館<br>
+      🕜 開場：13:30 ／ 開演：14:00
+    </p>
   </section>
 
-  <section id="formArea">
-    <h2>アンケート(SURVEY)</h2>
+  <!-- ===== PROGRAM ===== -->
+  <section>
+    <h2 class="fade-up">プログラム</h2>
+    <ul class="program fade-up">
+      <li>第一部：シンフォニックステージ</li>
+      <li>第二部：ポップスステージ</li>
+      <li>第三部：合同ステージ</li>
+    </ul>
+  </section>
 
-    <form id="surveyForm">
-      <p style="opacity:0.8;">※ 以下の項目にご協力ください / Please answer the following questions.</p>
-
-      <label for="name">差し支えなければ、お名前ご記入ください / If you don’t mind, please enter your name</label>
-      <input type="text" id="name" placeholder="例：元岡 太郎">
-
-      <label for="age">年代 / Age Group</label>
-      <select id="age" required>
-        <option value="">選択してください</option>
-        <option>10代</option>
-        <option>20代</option>
-        <option>30代</option>
-        <option>40代</option>
-        <option>50代</option>
-        <option>60代以上</option>
-      </select>
-
-      <label for="satisfaction">演奏会の満足度 / Satisfaction with the concert</label>
-      <select id="satisfaction" required>
-        <option value="">選択してください</option>
-        <option>とても満足</option>
-        <option>満足</option>
-        <option>普通</option>
-        <option>やや不満</option>
-        <option>不満</option>
-      </select>
-
-      <label for="comment">ご感想・ご意見 / Comments or Feedback</label>
-      <textarea id="comment" rows="5" placeholder="自由にご記入ください / Please write freely"></textarea>
-
-      <label for="source">
-        本日の演奏会は何でお知りになりましたか？<br>
-        <span style="font-weight:normal;">How did you hear about this concert?</span>
-      </label>
-      <select id="source" required>
-        <option value="">選択してください / Please select</option>
-        <option>学校からの案内</option>
-        <option>団員からの案内</option>
-        <option>ポスター・チラシ</option>
-        <option>知人・家族から</option>
-        <option>学校・団体のWebサイト</option>
-        <option>SNS</option>
-        <option>その他</option>
-      </select>
-
-      <label for="role">
-      あなたのお立場を教えてください<br>
-      <span style="font-weight:normal;">Please tell us your role</span>
-    </label>
-    <select id="role" required>
-      <option value="">選択してください / Please select</option>
-      <option>生徒</option>
-      <option>保護者</option>
-      <option>教職員</option>
-      <option>卒業生</option>
-      <option>地域の方</option>
-      <option>その他</option>
-    </select>
-      
-      <label for="area">
-        お住まいの地域<br>
-        <span style="font-weight:normal;">Area where you live</span>
-      </label>
-      <select id="area" required>
-        <option value="">選択してください / Please select</option>
-        <option>福岡市西区</option>
-        <option>福岡市内（西区以外）</option>
-        <option>福岡市外（福岡県内）</option>
-        <option>福岡県外</option>
-      </select>
-
-      <button type="submit">回答を送信 / SEND</button>
-      <div class="loading" id="loading">
-  <span class="spinner"></span> 送信中です…
-</div>
-    </form>
-
-    <div class="complete" id="completeMessage">
-      <p>ご回答ありがとうございました。</p>
-      <p>回答は送信されました。</p>
-      <p>このページを閉じて、元の画面へお戻りください。</p>
-    </div>
+  <!-- ===== GUEST ===== -->
+  <section>
+    <h2 class="fade-up">ゲスト</h2>
+    <p class="fade-up">
+      越本 龍二
+    </p>
   </section>
 
   <footer>
-    <p>© 福岡市立元岡中学校 吹奏楽部</p>
+    © 福岡市立元岡中学校 吹奏楽部
   </footer>
 
+  <!-- ===== SCRIPT ===== -->
   <script>
-const form = document.getElementById("surveyForm");
-const loading = document.getElementById("loading");
-const complete = document.getElementById("completeMessage");
-
-form.addEventListener("submit", function(e) {
-  e.preventDefault();
-
-  form.querySelector("button").disabled = true;
-  loading.style.display = "block";
-
-  const data = {
-    name: document.getElementById("name").value,
-    age: document.getElementById("age").value,
-    satisfaction: document.getElementById("satisfaction").value,
-    comment: document.getElementById("comment").value,
-    source: document.getElementById("source").value,
-    area: document.getElementById("area").value,
-    role: document.getElementById("role").value
-  };
-
-fetch("https://script.google.com/macros/s/AKfycbz1jfpK1_ryITjTeS3V-EllEzMrI-yxQCr3JmKJi8feUXv95yZTVFA8P0jyNcDu3aA/exec", {
-  method: "POST",
-  mode: "no-cors",   // ★これが最重要
-  headers: {
-    "Content-Type": "application/json"
-  },
-  body: JSON.stringify(data)
-})
-.then(() => {
-  loading.style.display = "none";
-  form.style.display = "none";
-  complete.style.display = "block";
-
-  complete.scrollIntoView({
-    behavior: "smooth",
-    block: "center"
-  });
-})
-.catch(() => {
-  loading.style.display = "none";
-  alert("送信に失敗しました。通信環境が不安定または接続されていない可能性があります。通信環境を確認してからもう一度回答を送信ボタンを押してください。それでも解決しない場合はお近くの生徒またはスタッフにお声掛けください。");
-  form.querySelector("button").disabled = false;
-});
-});
     const targets = document.querySelectorAll(".fade-up");
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("show");
-      observer.unobserve(entry.target);
-    }
-  });
-}, {
-  rootMargin: "-40% 0px -40% 0px",
-  threshold: 0
-});
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      rootMargin: "-40% 0px",
+      threshold: 0
+    });
 
-targets.forEach(target => observer.observe(target));
-</script>
+    targets.forEach(el => observer.observe(el));
+  </script>
 
 </body>
 </html>
